@@ -1,13 +1,14 @@
 import sqlite3
-import praw
+import csv
 
 connection = sqlite3.connect("cities.db")
 cursor = connection.cursor()
-
 cursor.execute("SELECT * FROM city")
-result = cursor.fetchall()
 
-for r in result:
-    print(r)
+with open('metro-data.csv', mode='w', newline='') as metro_file:
+    csv_writer = csv.writer(metro_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    for i in range(384):
+        result = cursor.fetchone()
+        csv_writer.writerow(result)
 
 connection.close()
