@@ -1,12 +1,6 @@
 import sqlite3
 import praw
 
-reddit = praw.Reddit(client_id='vrZ4ypHWQ6oF-Q',
-                         client_secret='kS-WA9nayjVVr4DHLnSuwygUOuE',
-                         password='SiouxFalls187',
-                         user_agent='mapping project by u/walebluber',
-                         username='walebluber')
-
 connection = sqlite3.connect("cities.db")
 cursor = connection.cursor()
 
